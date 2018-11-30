@@ -19,7 +19,9 @@
     "Algorithm::LDA::Phi" : "lib/Algorithm/LDA/Phi.pm6",
     "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6"
   },
-  "resources" : [ ],
+  "resources" : [
+    "libraries/liblda"
+  ],
   "source-url" : "https://github.com/titsuki/p6-Algorithm-LDA.git",
   "tags" : [ ],
   "test-depends" : [ ],
