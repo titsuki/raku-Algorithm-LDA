@@ -1,6 +1,6 @@
 use v6.c;
 use NativeCall;
-unit class Algorithm::LDA::Theta:ver<0.0.1>:auth<cpan:TITSUKI> is repr('CPointer');
+unit class Algorithm::LDA::Theta:ver<0.0.2>:auth<cpan:TITSUKI> is repr('CPointer');
 
 my constant $library = %?RESOURCES<libraries/lda>.Str;
 
