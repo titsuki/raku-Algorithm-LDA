@@ -20,7 +20,7 @@
     "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6"
   },
   "resources" : [
-    "libraries/liblda"
+    "libraries/lda"
   ],
   "source-url" : "https://github.com/titsuki/p6-Algorithm-LDA.git",
   "tags" : [ ],
