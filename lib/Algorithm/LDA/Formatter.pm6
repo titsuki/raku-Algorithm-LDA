@@ -2,7 +2,7 @@ use v6.c;
 use NativeCall;
 use Algorithm::LDA::Document;
 
-unit class Algorithm::LDA::Formatter:ver<0.0.3>:auth<cpan:TITSUKI>;
+unit class Algorithm::LDA::Formatter:ver<0.0.4>:auth<cpan:TITSUKI>;
 
 method from-plain(@documents is raw, &tokenizer = { .words }) {
     my %word2type;
