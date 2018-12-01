@@ -11,15 +11,15 @@ my sub lda_phi_weight(Algorithm::LDA::Phi, int32, int32 --> num64) is native($li
 my sub lda_phi_num_sub_topic(Algorithm::LDA::Phi --> int32) is native($library) { * }
 my sub lda_phi_num_word_type(Algorithm::LDA::Phi --> int32) is native($library) { * }
 
-method new(int :$num-sub-topic!, int :$num-word-type!, num :$beta!) {
+method new(Int :$num-sub-topic!, Int :$num-word-type!, Num :$beta!) {
     lda_create_phi($num-sub-topic, $num-word-type, $beta);
 }
 
-method allocate(int $sub-topic, int $word-type) {
+method allocate(Int $sub-topic, Int $word-type) {
     lda_phi_allocate(self, $sub-topic, $word-type);
 }
 
-method deallocate(int $sub-topic, int $word-type) {
+method deallocate(Int $sub-topic, Int $word-type) {
     lda_phi_deallocate(self, $sub-topic, $word-type);
 }
 
@@ -31,6 +31,6 @@ method num-word-types {
     lda_phi_num_word_type(self);
 }
 
-method weight(int $sub-topic, int $word-type --> num) {
+method weight(Int $sub-topic, Int $word-type --> Num) {
     lda_phi_weight(self, $sub-topic, $word-type);
 }

@@ -15,7 +15,7 @@ has List $!vocabs;
 
 submethod BUILD(:$!documents!, :$!vocabs! is raw) { }
 
-method fit(int :$num-iterations = 500, int :$num-topics!, num :$alpha = 0.1e0, num :$beta = 0.1e0 --> Algorithm::LDA::LDAModel) {
+method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0 --> Algorithm::LDA::LDAModel) {
     my $phi = Algorithm::LDA::Phi.new(:num-sub-topic($num-topics), :num-word-type(+@$!vocabs), :$beta);
     my $theta = CArray[Algorithm::LDA::Theta].allocate: 1;
     $theta[0] = Algorithm::LDA::Theta.new(:num-super-topic(1),

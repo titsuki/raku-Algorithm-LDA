@@ -14,27 +14,27 @@ my sub lda_theta_num_super_topic(Algorithm::LDA::Theta --> int32) is native($lib
 my sub lda_theta_num_sub_topic(Algorithm::LDA::Theta --> int32) is native($library) { * }
 my sub lda_theta_num_doc(Algorithm::LDA::Theta --> int32) is native($library) { * }
 
-method new(int :$num-super-topic!, int :$num-sub-topic!, int :$num-doc!, num :$alpha!) {
+method new(Int :$num-super-topic!, Int :$num-sub-topic!, Int :$num-doc!, Num :$alpha!) {
     lda_create_theta($num-super-topic, $num-sub-topic, $num-doc, $alpha);
 }
 
-method num-super-topics(--> int) {
+method num-super-topics(--> Int) {
     lda_theta_num_super_topic(self)
 }
 
-method num-sub-topics(--> int) {
+method num-sub-topics(--> Int) {
     lda_theta_num_sub_topic(self)
 }
 
-method num-docs(--> int) {
+method num-docs(--> Int) {
     lda_theta_num_doc(self)
 }
 
-method allocate(int $super-topic, int $sub-topic, int $doc-index) {
+method allocate(Int $super-topic, Int $sub-topic, Int $doc-index) {
     lda_theta_allocate(self, $super-topic, $sub-topic, $doc-index);
 }
 
-method deallocate(int $super-topic, int $sub-topic, int $doc-index) {
+method deallocate(Int $super-topic, Int $sub-topic, Int $doc-index) {
     lda_theta_deallocate(self, $super-topic, $sub-topic, $doc-index);
 }
 
@@ -42,6 +42,6 @@ method !update {
     lda_theta_update(self)
 }
 
-method weight(int $super-topic, int $sub-topic, int $doc-index --> num) {
+method weight(Int $super-topic, Int $sub-topic, Int $doc-index --> Num) {
     lda_theta_weight(self, $super-topic, $sub-topic, $doc-index);
 }
