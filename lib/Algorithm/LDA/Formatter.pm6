@@ -8,8 +8,8 @@ method from-plain(@documents is raw, &tokenizer = { .words }) {
     my %word2type;
     my $destringed-documents = CArray[Algorithm::LDA::Document].allocate: +@documents;
     for ^@documents -> $doc-index {
-        my @words;
-        my @tokenized = @documents[$doc-index].map(&tokenizer);
+        my Int @words;
+        my Str @tokenized = @documents[$doc-index].flatmap(&tokenizer);
         for ^@tokenized -> $word-index {
             unless %word2type{@tokenized[$word-index]}:exists {
                 %word2type{@tokenized[$word-index]} = %word2type.elems;

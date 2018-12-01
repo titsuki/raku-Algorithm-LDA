@@ -12,6 +12,7 @@ subtest {
         "d e f",
     );
     my ($documents, $vocabs) = Algorithm::LDA::Formatter.from-plain(@documents);
+    is-deeply $vocabs, ["a", "b", "c", "d", "e", "f"];
     my Algorithm::LDA $lda .= new(:$documents, :$vocabs);
     my Algorithm::LDA::LDAModel $model = $lda.fit(:num-topics(3), :num-iterations(1000));
     lives-ok { $model.topic-word-matrix }
