@@ -28,38 +28,40 @@ method log-likelihood(--> Num) {
 }
 
 method nbest-words-per-topic(Int $n = 10 --> List) {
-    my @matrix;
+    my Int $n-max = ($n > +@!vocabs ?? +@!vocabs !! $n);
+    my @matrix[$!phi.num-topics;$n-max];
     for ^$!phi.num-topics -> $p {
         my @words;
         for ^@!vocabs -> $word-type {
             my $weight = $!phi.weight($p, $word-type);
             @words.push: Pair.new(@!vocabs[$word-type], $weight);
         }
-        @matrix[$p].push: @words.sort({ $^b.value <=> $^a.value }).head($n);
+        @matrix[$p;.key] = .value for @words.sort({ $^b.value <=> $^a.value }).head($n-max).pairs;
     }
     @matrix;
 }
 
 method topic-word-matrix(--> List) {
-    my @matrix;
+    my @matrix[$!phi.num-topics;+@!vocabs];
     for ^$!phi.num-topics -> $p {
+        my Int $index = 0;
         for ^@!vocabs -> $word-type {
             my $weight = $!phi.weight($p, $word-type);
-            @matrix[$p].push: $weight;
+            @matrix[$p;$index] = $weight;
+            $index++;
         }
     }
     @matrix;
 }
 
 method document-topic-matrix(--> List) {
-    my @matrix;
     my $theta := $!theta.list[0];
+    my @matrix[+$!documents.list;$theta.num-sub-topics];
     for ^$!documents.list -> $doc-index {
         my @weight;
         for ^$theta.num-sub-topics -> $p {
-            @weight[0;$p] = $theta.weight(0, $p, $doc-index);
+            @matrix[$doc-index;$p] = $theta.weight(0, $p, $doc-index);
         }
-        @matrix.push: @weight[0;*];
     }
     @matrix;
 }
