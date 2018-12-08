@@ -2,6 +2,9 @@ Revision history for Algorithm-LDA
 
 {{$NEXT}}
 
+0.0.5  2018-12-08T17:04:32+09:00
+    - [BREAKING API] Fix resulting matrix shape [#1]
+
 0.0.4  2018-12-01T16:39:38+09:00
     - Fix default document tokenization [4c779db]
     - Use p6 types intead of native types [a19af98]
