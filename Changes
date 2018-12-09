@@ -2,6 +2,9 @@ Revision history for Algorithm-LDA
 
 {{$NEXT}}
 
+0.0.6  2018-12-09T20:00:39+09:00
+    - Add vocabulary ouput interface [#2]
+
 0.0.5  2018-12-08T17:04:32+09:00
     - [BREAKING API] Fix resulting matrix shape [#1]
 
