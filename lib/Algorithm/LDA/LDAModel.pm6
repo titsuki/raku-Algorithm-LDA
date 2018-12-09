@@ -66,3 +66,6 @@ method document-topic-matrix(--> List) {
     @matrix;
 }
 
+method vocabulary(--> List) {
+    @!vocabs
+}

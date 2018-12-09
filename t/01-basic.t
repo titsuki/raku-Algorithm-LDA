@@ -36,4 +36,15 @@ subtest {
     is $model.nbest-words-per-topic(7).shape, (3, 7), "n is less than vocab size"; 
 }, "Check resulting matrix shape";
 
+subtest {
+    my @documents = (
+        "a b c d",
+        "e f g h",
+    );
+    my ($documents, $vocabs) = Algorithm::LDA::Formatter.from-plain(@documents);
+    my Algorithm::LDA $lda .= new(:$documents, :$vocabs);
+    my Algorithm::LDA::LDAModel $model = $lda.fit(:num-topics(3), :num-iterations(1000));
+    is $model.vocabulary.elems, 8;
+}, "Check vocabulary size";
+
 done-testing;
