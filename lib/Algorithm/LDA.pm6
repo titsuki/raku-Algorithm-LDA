@@ -9,13 +9,17 @@ unit class Algorithm::LDA:ver<0.0.6>:auth<cpan:TITSUKI>;
 my constant $library = %?RESOURCES<libraries/lda>.Str;
 
 my sub lda_fit(CArray[Algorithm::LDA::Document], Algorithm::LDA::Phi, CArray[Algorithm::LDA::Theta], int32, int32, int32) is native($library) { * }
+my sub lda_set_srand(int32) is native($library) { * }
 
 has $!documents; # TODO: Type checking doesn't work due to the "... but got CArray[XXX].new" error
 has List $!vocabs;
 
 submethod BUILD(:$!documents!, :$!vocabs! is raw) { }
 
-method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0 --> Algorithm::LDA::LDAModel) {
+method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0, Int :$seed --> Algorithm::LDA::LDAModel) {
+    if $seed.defined {
+        lda_set_srand($seed);
+    }
     my $phi = Algorithm::LDA::Phi.new(:num-sub-topic($num-topics), :num-word-type(+@$!vocabs), :$beta);
     my $theta = CArray[Algorithm::LDA::Theta].allocate: 1;
     $theta[0] = Algorithm::LDA::Theta.new(:num-super-topic(1),
@@ -95,7 +99,7 @@ Constructs a new Algorithm::LDA instance.
 
 Defined as:
 
-      method fit(int :$num-iterations = 500, int :$num-topics!, num :$alpha = 0.1e0, num :$beta = 0.1e0 --> Algorithm::LDA::LDAModel)
+      method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0, Int :$seed --> Algorithm::LDA::LDAModel)
 
 Returns an Algorithm::LDA::LDAModel instance.
 
@@ -106,6 +110,8 @@ Returns an Algorithm::LDA::LDAModel instance.
 =item C<alpha> is the prior for theta distribution (i.e., document-topic distribution)
 
 =item C<beta> is the prior for phi distribution (i.e., topic-word distribution)
+
+=item C<seed> is the seed for srand
 
 =head1 AUTHOR
 

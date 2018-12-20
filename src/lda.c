@@ -184,3 +184,7 @@ double lda_heldout_log_likelihood(struct document_model** documents, struct phi_
   }
   return weight;
 }
+
+void lda_set_srand(int seed) {
+  srand(seed);
+}

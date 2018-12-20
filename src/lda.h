@@ -7,6 +7,8 @@
 
 void lda_fit(struct document_model** documents, struct phi_model* phi, struct theta_model** theta, int num_topics, int doc_size, int num_iteration);
 
+void lda_set_srand(int seed);
+
 double lda_log_likelihood(struct phi_model* phi, struct theta_model** theta);
 
 double lda_heldout_log_likelihood(struct document_model** documents, struct phi_model* phi, int num_topics, int doc_size);

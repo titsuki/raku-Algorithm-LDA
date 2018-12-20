@@ -47,4 +47,23 @@ subtest {
     is $model.vocabulary.elems, 8;
 }, "Check vocabulary size";
 
+subtest {
+    my @documents = (
+        ("a" .. "z").pick(100).join(" "),
+        ("a" .. "z").pick(100).join(" "),
+        ("a" .. "z").pick(100).join(" ")
+    );
+    my ($documents, $vocabs) = Algorithm::LDA::Formatter.from-plain(@documents);
+    my Algorithm::LDA $lda .= new(:$documents, :$vocabs);
+
+    my @prev;
+    for 1..5 {
+        my Algorithm::LDA::LDAModel $model = $lda.fit(:num-topics(3), :num-iterations(1000), :seed(2));
+        if @prev {
+            is @prev, $model.document-topic-matrix;
+        }
+        @prev = $model.document-topic-matrix;
+    }
+}, "Check reproducibility";
+
 done-testing;
