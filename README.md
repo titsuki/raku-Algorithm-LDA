@@ -74,7 +74,7 @@ METHODS
 
 Defined as:
 
-    method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0, Int $seed --> Algorithm::LDA::LDAModel)
+    method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0, Int :$seed --> Algorithm::LDA::LDAModel)
 
 Returns an Algorithm::LDA::LDAModel instance.
 
