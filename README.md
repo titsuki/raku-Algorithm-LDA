@@ -74,7 +74,7 @@ METHODS
 
 Defined as:
 
-    method fit(int :$num-iterations = 500, int :$num-topics!, num :$alpha = 0.1e0, num :$beta = 0.1e0 --> Algorithm::LDA::LDAModel)
+    method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0, Int $seed --> Algorithm::LDA::LDAModel)
 
 Returns an Algorithm::LDA::LDAModel instance.
 
@@ -85,6 +85,8 @@ Returns an Algorithm::LDA::LDAModel instance.
   * `alpha` is the prior for theta distribution (i.e., document-topic distribution)
 
   * `beta` is the prior for phi distribution (i.e., topic-word distribution)
+
+  * `seed` is the seed for srand
 
 AUTHOR
 ======
