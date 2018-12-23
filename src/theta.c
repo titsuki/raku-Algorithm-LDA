@@ -37,7 +37,25 @@ struct theta_model* lda_create_theta(int num_super_topic, int num_sub_topic, int
 }
 
 void lda_delete_theta(struct theta_model* model) {
-  free(model);
+  if (model != NULL) {
+    for (int super_i = 0; super_i < model->num_super_topic; super_i++) {
+      for (int sub_i = 0; sub_i < model->num_sub_topic; sub_i++) {
+        free(model->nkp[super_i][sub_i]);
+      }
+    }
+
+    for (int super_i = 0; super_i < model->num_super_topic; super_i++) {
+      free(model->nk[super_i]);
+      free(model->nkp[super_i]);
+      free(model->akp[super_i]);
+    }
+
+    free(model->nkp);
+    free(model->nk);
+    free(model->akp);
+    free(model->ak);
+    free(model);
+  }
 }
 
 void lda_theta_allocate(struct theta_model* model, int super_topic, int sub_topic, int doc_index) {
