@@ -2,6 +2,9 @@ Revision history for Algorithm-LDA
 
 {{$NEXT}}
 
+0.0.8  2018-12-23T14:09:09+09:00
+    - Make sure pointers are deallocated [#4]
+
 0.0.7  2018-12-21T20:44:11+09:00
     - Add seed option [#3]
 
