@@ -27,7 +27,14 @@ struct phi_model* lda_create_phi(int num_sub_topic, int num_word_type, double be
 }
 
 void lda_delete_phi(struct phi_model* model) {
-  free(model);
+  if (model != NULL) {
+    for (int sub_i = 0; sub_i < model->num_sub_topic; sub_i++) {
+      free(model->npw[sub_i]);
+    }
+    free(model->np);
+    free(model->npw);
+    free(model);
+  }
 }
 
 void lda_phi_allocate(struct phi_model* model, int sub_topic, int word_type) {

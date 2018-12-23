@@ -45,3 +45,7 @@ method !update {
 method weight(Int $super-topic, Int $sub-topic, Int $doc-index --> Num) {
     lda_theta_weight(self, $super-topic, $sub-topic, $doc-index);
 }
+
+submethod DESTORY {
+    lda_delete_theta(self)
+}

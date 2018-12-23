@@ -5,6 +5,7 @@ unit class Algorithm::LDA::Phi:ver<0.0.7>:auth<cpan:TITSUKI> is repr('CPointer')
 my constant $library = %?RESOURCES<libraries/lda>.Str;
 
 my sub lda_create_phi(int32, int32, num64 --> Algorithm::LDA::Phi) is native($library) { * }
+my sub lda_delete_phi(Algorithm::LDA::Phi) is native($library) { * }
 my sub lda_phi_allocate(Algorithm::LDA::Phi, int32, int32) is native($library) { * }
 my sub lda_phi_deallocate(Algorithm::LDA::Phi, int32, int32) is native($library) { * }
 my sub lda_phi_weight(Algorithm::LDA::Phi, int32, int32 --> num64) is native($library) { * }
@@ -33,4 +34,8 @@ method num-word-types {
 
 method weight(Int $sub-topic, Int $word-type --> Num) {
     lda_phi_weight(self, $sub-topic, $word-type);
+}
+
+submethod DESTROY {
+    lda_delete_phi(self)
 }
