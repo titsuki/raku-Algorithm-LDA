@@ -7,3 +7,10 @@ struct path_model* lda_create_path(int length) {
   model->topics = (int*)malloc(sizeof(int) * length);
   return model;
 }
+
+void lda_delete_path(struct path_model* model) {
+  if (model != NULL) {
+    free(model->topics);
+    free(model);
+  }
+}

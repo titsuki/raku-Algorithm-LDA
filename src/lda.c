@@ -63,8 +63,9 @@ void lda_fit(struct document_model** documents, struct phi_model* phi, struct th
     }
   }
   for (int doc_i = 0; doc_i < doc_size; doc_i++) {
-    free(paths[doc_i]);
+    lda_delete_path(paths[doc_i]);
   }
+  free(paths);
 }
 
 double lda_log_likelihood(struct phi_model* phi, struct theta_model** theta) {
