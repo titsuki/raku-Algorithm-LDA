@@ -9,7 +9,7 @@ else
 	detected_OS := $(shell uname)
 endif
 
-ifeq ($(detected_OS),Darwin)
+ifeq ($(detected_OS), Linux)
 	LDFLAGS += -lm
 endif
 
