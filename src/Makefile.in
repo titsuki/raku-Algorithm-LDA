@@ -2,7 +2,16 @@ name = %lda%
 SRCS = lda.c theta.c document.c util.c path.c phi.c
 OBJS = $(SRCS:.c=.o)
 HEADERS	= $(SRCS:.c=.h)
-LDFLAGS	= -lm
+
+ifeq ($(OS),Windows_NT)
+	detected_OS := Windows
+else
+	detected_OS := $(shell uname)
+endif
+
+ifeq ($(detected_OS),Darwin)
+	LDFLAGS += -lm
+endif
 
 all: %DESTDIR%/resources/libraries/%lda%
 
