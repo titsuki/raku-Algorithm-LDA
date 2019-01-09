@@ -2,6 +2,7 @@ name = %lda%
 SRCS = lda.c theta.c document.c util.c path.c phi.c
 OBJS = $(SRCS:.c=.o)
 HEADERS	= $(SRCS:.c=.h)
+CCSHARED = %CCSHARED%
 
 ifeq ($(OS),Windows_NT)
 	detected_OS := Windows
@@ -11,6 +12,7 @@ endif
 
 ifeq ($(detected_OS), Linux)
 	LDFLAGS += -lm
+	CCSHARED += -shared
 endif
 
 all: %DESTDIR%/resources/libraries/%lda%
@@ -19,10 +21,10 @@ clean:
 	rm %DESTDIR%/resources/libraries/%lda%
 
 %DESTDIR%/resources/libraries/%lda%: $(OBJS)
-	%CC% -std=c99 -shared %CCSHARED% %CCFLAGS% $(OBJS) -o $@ $(LDFLAGS)
+	%CC% -std=c99 $(CCSHARED) %CCFLAGS% $(OBJS) -o $@ $(LDFLAGS)
 
 %.o: %.c %.h
-	%CC% -std=c99 -shared %CCSHARED% %CCFLAGS% -c $< $(LDFLAGS)
+	%CC% -std=c99 $(CCSHARED) %CCFLAGS% -c $< $(LDFLAGS)
 
 %.d: %.c
 	@set -e; rm -f $@; \
