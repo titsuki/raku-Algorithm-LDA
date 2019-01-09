@@ -3,6 +3,7 @@ SRCS = lda.c theta.c document.c util.c path.c phi.c
 OBJS = $(SRCS:.c=.o)
 HEADERS	= $(SRCS:.c=.h)
 CCSHARED = %CCSHARED%
+LDFLAGS = %LDFLAGS%
 
 ifeq ($(OS),Windows_NT)
 	detected_OS := Windows
