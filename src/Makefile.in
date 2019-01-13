@@ -17,7 +17,7 @@ ifeq ($(detected_OS), Linux)
 endif
 
 ifeq ($(detected_OS), Darwin)
-	CCSHARED += -Wl,-dynamiclib
+	CCSHARED += -dynamiclib -Wl,-commons,use_dylibs
 endif
 
 all: %DESTDIR%/resources/libraries/%lda%
