@@ -16,6 +16,10 @@ ifeq ($(detected_OS), Linux)
 	CCSHARED += -shared
 endif
 
+ifeq ($(detected_OS), Darwin)
+	CCSHARED += -dynamiclib
+endif
+
 all: %DESTDIR%/resources/libraries/%lda%
 
 clean:
