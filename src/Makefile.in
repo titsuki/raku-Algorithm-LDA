@@ -26,7 +26,7 @@ clean:
 	rm %DESTDIR%/resources/libraries/%lda%
 
 %DESTDIR%/resources/libraries/%lda%: $(OBJS)
-	%CC% -std=c99 $(CCSHARED) %CCFLAGS% $(OBJS) -o $@ $(LDFLAGS)
+	%CC% -std=c99 $(CCSHARED) %CCFLAGS% $(OBJS) -o $@
 
 %.o: %.c %.h
 	%CC% -std=c99 %CCFLAGS% -c $< $(LDFLAGS)
