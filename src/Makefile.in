@@ -17,7 +17,7 @@ ifeq ($(detected_OS), Linux)
 endif
 
 ifeq ($(detected_OS), Darwin)
-	LDFLAGS += -dynamiclib -Wl,-commons,use_dylibs
+	CCSHARED += -dynamiclib -Wl,-commons,use_dylibs
 endif
 
 all: %DESTDIR%/resources/libraries/%lda%
@@ -29,7 +29,7 @@ clean:
 	%CC% -std=c99 $(CCSHARED) %CCFLAGS% $(OBJS) -o $@ $(LDFLAGS)
 
 %.o: %.c %.h
-	%CC% -std=c99 $(CCSHARED) %CCFLAGS% -c $< $(LDFLAGS)
+	%CC% -std=c99 %CCFLAGS% -c $< $(LDFLAGS)
 
 %.d: %.c
 	@set -e; rm -f $@; \
