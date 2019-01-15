@@ -29,7 +29,7 @@ clean:
 	%CC% -std=c99 $(CCSHARED) %CCFLAGS% $(OBJS) -o $@
 
 %.o: %.c %.h
-	%CC% -std=c99 %CCFLAGS% -c $< $(LDFLAGS)
+	%CC% -std=c99 %CCFLAGS% -c $<
 
 %.d: %.c
 	@set -e; rm -f $@; \
