@@ -11,10 +11,10 @@ my constant $library = %?RESOURCES<libraries/lda>.Str;
 my sub lda_fit(CArray[Algorithm::LDA::Document], Algorithm::LDA::Phi, CArray[Algorithm::LDA::Theta], int32, int32, int32) is native($library) { * }
 my sub lda_set_srand(int32) is native($library) { * }
 
-has $!documents; # TODO: Type checking doesn't work due to the "... but got CArray[XXX].new" error
+has CArray[Algorithm::LDA::Document] $!documents; # TODO: Type checking doesn't work due to the "... but got CArray[XXX].new" error
 has List $!vocabs;
 
-submethod BUILD(:$!documents!, :$!vocabs! is raw) { }
+submethod BUILD(CArray[Algorithm::LDA::Document] :$!documents!, :$!vocabs! is raw) { }
 
 method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, Num :$beta = 0.1e0, Int :$seed --> Algorithm::LDA::LDAModel) {
     if $seed.defined {
