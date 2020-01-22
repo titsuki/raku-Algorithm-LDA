@@ -4,7 +4,7 @@
 #include <string.h>
 #include "util.h"
 
-// This implementation is based on Eq. 31 in:
+// This implementation is based on Eq. 55 in:
 // Minka, Thomas. "Estimating a Dirichlet distribution." (2000): 4.
 void lda_update_parameter(int num_parameter, int num_observed, int** n, double* sigma_alpha, double* alpha) {
   int* sum_n = (int*)malloc(sizeof(int) * num_observed);
