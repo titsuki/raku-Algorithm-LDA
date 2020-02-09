@@ -4,8 +4,11 @@
     "titsuki"
   ],
   "build-depends" : [
-    "LibraryMake"
+    "LibraryMake",
+    "Distribution::Builder::MakeFromJSON",
+    "Algorithm::LDA::CustomBuilder"
   ],
+  "builder" : "Algorithm::LDA::CustomBuilder",
   "depends" : [ ],
   "description" : "A Raku Latent Dirichlet Allocation implementation.",
   "license" : "Artistic-2.0",
