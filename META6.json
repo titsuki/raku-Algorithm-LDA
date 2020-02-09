@@ -7,7 +7,7 @@
     "LibraryMake"
   ],
   "depends" : [ ],
-  "description" : "A Perl 6 Latent Dirichlet Allocation implementation.",
+  "description" : "A Raku Latent Dirichlet Allocation implementation.",
   "license" : "Artistic-2.0",
   "name" : "Algorithm::LDA",
   "perl" : "6.c",
@@ -17,12 +17,13 @@
     "Algorithm::LDA::Formatter" : "lib/Algorithm/LDA/Formatter.pm6",
     "Algorithm::LDA::LDAModel" : "lib/Algorithm/LDA/LDAModel.pm6",
     "Algorithm::LDA::Phi" : "lib/Algorithm/LDA/Phi.pm6",
-    "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6"
+    "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6",
+    "Algorithm::LDA::CustomBuilder" : "lib/Algorithm/LDA/CustomBuilder.pm6"
   },
   "resources" : [
     "libraries/lda"
   ],
-  "source-url" : "https://github.com/titsuki/p6-Algorithm-LDA.git",
+  "source-url" : "https://github.com/titsuki/raku-Algorithm-LDA.git",
   "tags" : [ ],
   "test-depends" : [ ],
   "version" : "0.0.9"

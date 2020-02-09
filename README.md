@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/titsuki/p6-Algorithm-LDA.svg?branch=master)](https://travis-ci.org/titsuki/p6-Algorithm-LDA)
+[![Build Status](https://travis-ci.org/titsuki/raku-Algorithm-LDA.svg?branch=master)](https://travis-ci.org/titsuki/raku-Algorithm-LDA)
 
 NAME
 ====
 
-Algorithm::LDA - A Perl 6 Latent Dirichlet Allocation implementation.
+Algorithm::LDA - A Raku Latent Dirichlet Allocation implementation.
 
 SYNOPSIS
 ========
@@ -54,7 +54,7 @@ EXAMPLE 2
 DESCRIPTION
 ===========
 
-Algorithm::LDA is a Perl 6 Latent Dirichlet Allocation implementation.
+Algorithm::LDA is a Raku Latent Dirichlet Allocation implementation.
 
 CONSTRUCTOR
 -----------

@@ -34,7 +34,7 @@ method fit(Int :$num-iterations = 500, Int :$num-topics!, Num :$alpha = 0.1e0, N
 
 =head1 NAME
 
-Algorithm::LDA - A Perl 6 Latent Dirichlet Allocation implementation.
+Algorithm::LDA - A Raku Latent Dirichlet Allocation implementation.
 
 =head1 SYNOPSIS
 
@@ -81,7 +81,7 @@ Algorithm::LDA - A Perl 6 Latent Dirichlet Allocation implementation.
 
 =head1 DESCRIPTION
 
-Algorithm::LDA is a Perl 6 Latent Dirichlet Allocation implementation.
+Algorithm::LDA is a Raku Latent Dirichlet Allocation implementation.
 
 =head2 CONSTRUCTOR
 
