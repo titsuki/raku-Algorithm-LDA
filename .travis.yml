@@ -9,5 +9,5 @@ install:
   - zef install --deps-only --/test .
 script:
   - RAKUDOLIB=inst#$PWD/lib zef build .
-  - RAKUDOLIB=inst#$PWD/lib prove -e perl6 -vr t/
+  - RAKUDOLIB=$PWD/lib prove -e perl6 -vr t/
 sudo: false
