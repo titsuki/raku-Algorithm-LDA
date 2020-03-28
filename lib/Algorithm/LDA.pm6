@@ -4,7 +4,7 @@ use Algorithm::LDA::Document;
 use Algorithm::LDA::Theta;
 use Algorithm::LDA::Phi;
 use Algorithm::LDA::LDAModel;
-unit class Algorithm::LDA:ver<0.0.9>:auth<cpan:TITSUKI>;
+unit class Algorithm::LDA:ver<0.0.10>:auth<cpan:TITSUKI>;
 
 my constant $library = %?RESOURCES<libraries/lda>.Str;
 
