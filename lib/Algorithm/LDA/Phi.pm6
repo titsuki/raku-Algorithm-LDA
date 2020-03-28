@@ -2,7 +2,7 @@ use v6.c;
 use NativeCall;
 unit class Algorithm::LDA::Phi:ver<0.0.9>:auth<cpan:TITSUKI> is repr('CPointer');
 
-my constant $library = %?RESOURCES<libraries/lda>;
+my constant $library = %?RESOURCES<libraries/lda>.Str;
 
 my sub lda_create_phi(int32, int32, num64 --> Algorithm::LDA::Phi) is native($library) { * }
 my sub lda_delete_phi(Algorithm::LDA::Phi) is native($library) { * }
