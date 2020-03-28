@@ -6,7 +6,7 @@ use Algorithm::LDA::Phi;
 
 unit class Algorithm::LDA::LDAModel:ver<0.0.9>:auth<cpan:TITSUKI>;
 
-my constant $library = %?RESOURCES<libraries/lda>.Str;
+my constant $library = %?RESOURCES<libraries/lda>;
 
 my sub lda_log_likelihood(Algorithm::LDA::Phi, CArray[Algorithm::LDA::Theta] --> num64) is native($library) { * }
 my sub lda_heldout_log_likelihood(CArray[Algorithm::LDA::Document], Algorithm::LDA::Phi, int32, int32 --> num64) is native($library) { * }
