@@ -6,7 +6,7 @@ use Algorithm::LDA::Phi;
 use Algorithm::LDA::LDAModel;
 unit class Algorithm::LDA:ver<0.0.9>:auth<cpan:TITSUKI>;
 
-my constant $library = %?RESOURCES<libraries/lda>;
+my constant $library = %?RESOURCES<libraries/lda>.Str;
 
 my sub lda_fit(CArray[Algorithm::LDA::Document], Algorithm::LDA::Phi, CArray[Algorithm::LDA::Theta], int32, int32, int32) is native($library) { * }
 my sub lda_set_srand(int32) is native($library) { * }
