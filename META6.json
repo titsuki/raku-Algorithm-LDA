@@ -16,12 +16,12 @@
   "perl" : "6.c",
   "provides" : {
     "Algorithm::LDA" : "lib/Algorithm/LDA.pm6",
+    "Algorithm::LDA::CustomBuilder" : "lib/Algorithm/LDA/CustomBuilder.pm6",
     "Algorithm::LDA::Document" : "lib/Algorithm/LDA/Document.pm6",
     "Algorithm::LDA::Formatter" : "lib/Algorithm/LDA/Formatter.pm6",
     "Algorithm::LDA::LDAModel" : "lib/Algorithm/LDA/LDAModel.pm6",
     "Algorithm::LDA::Phi" : "lib/Algorithm/LDA/Phi.pm6",
-    "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6",
-    "Algorithm::LDA::CustomBuilder" : "lib/Algorithm/LDA/CustomBuilder.pm6"
+    "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6"
   },
   "resources" : [
     "libraries/lda"
