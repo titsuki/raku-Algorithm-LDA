@@ -1,33 +1,36 @@
 {
-  "auth" : "cpan:TITSUKI",
-  "authors" : [
+  "auth": "cpan:TITSUKI",
+  "authors": [
     "titsuki"
   ],
-  "build-depends" : [
+  "build-depends": [
     "LibraryMake",
     "Distribution::Builder::MakeFromJSON",
     "Algorithm::LDA::CustomBuilder"
   ],
-  "builder" : "Algorithm::LDA::CustomBuilder",
-  "depends" : [ ],
-  "description" : "A Raku Latent Dirichlet Allocation implementation.",
-  "license" : "Artistic-2.0",
-  "name" : "Algorithm::LDA",
-  "perl" : "6.c",
-  "provides" : {
-    "Algorithm::LDA" : "lib/Algorithm/LDA.pm6",
-    "Algorithm::LDA::CustomBuilder" : "lib/Algorithm/LDA/CustomBuilder.pm6",
-    "Algorithm::LDA::Document" : "lib/Algorithm/LDA/Document.pm6",
-    "Algorithm::LDA::Formatter" : "lib/Algorithm/LDA/Formatter.pm6",
-    "Algorithm::LDA::LDAModel" : "lib/Algorithm/LDA/LDAModel.pm6",
-    "Algorithm::LDA::Phi" : "lib/Algorithm/LDA/Phi.pm6",
-    "Algorithm::LDA::Theta" : "lib/Algorithm/LDA/Theta.pm6"
+  "builder": "Algorithm::LDA::CustomBuilder",
+  "depends": [
+  ],
+  "description": "A Raku Latent Dirichlet Allocation implementation.",
+  "license": "Artistic-2.0",
+  "name": "Algorithm::LDA",
+  "perl": "6.c",
+  "provides": {
+    "Algorithm::LDA": "lib/Algorithm/LDA.pm6",
+    "Algorithm::LDA::CustomBuilder": "lib/Algorithm/LDA/CustomBuilder.pm6",
+    "Algorithm::LDA::Document": "lib/Algorithm/LDA/Document.pm6",
+    "Algorithm::LDA::Formatter": "lib/Algorithm/LDA/Formatter.pm6",
+    "Algorithm::LDA::LDAModel": "lib/Algorithm/LDA/LDAModel.pm6",
+    "Algorithm::LDA::Phi": "lib/Algorithm/LDA/Phi.pm6",
+    "Algorithm::LDA::Theta": "lib/Algorithm/LDA/Theta.pm6"
   },
-  "resources" : [
+  "resources": [
     "libraries/lda"
   ],
-  "source-url" : "https://github.com/titsuki/raku-Algorithm-LDA.git",
-  "tags" : [ ],
-  "test-depends" : [ ],
-  "version" : "0.0.10"
+  "source-url": "https://github.com/titsuki/raku-Algorithm-LDA.git",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.10"
 }

@@ -57,7 +57,7 @@ double lda_phi_weight(struct phi_model* model, int sub_topic, int word_type) {
   }
 }
 
-double lda_phi_pdf(struct phi_model* model) {
+double lda_phi_likelihood(struct phi_model* model) {
   double weight = 0.0;
 
   for (int topic = 0; topic < model->num_sub_topic; topic++) {

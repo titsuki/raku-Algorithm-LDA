@@ -69,7 +69,7 @@ void lda_fit(struct document_model** documents, struct phi_model* phi, struct th
 }
 
 double lda_log_likelihood(struct phi_model* phi, struct theta_model** theta) {
-  return lda_phi_pdf(phi) + lda_theta_pdf(theta[0]);
+  return lda_phi_likelihood(phi) + lda_theta_likelihood(theta[0]);
 }
 
 // Note: This heldout_log_likelihood function is highly experimental

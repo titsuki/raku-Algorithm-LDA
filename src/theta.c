@@ -83,7 +83,7 @@ double lda_theta_weight(struct theta_model* model, int super_topic, int sub_topi
   return weight;
 }
 
-double lda_theta_pdf(struct theta_model* model) {
+double lda_theta_likelihood(struct theta_model* model) {
   double weight = 0.0;
   for (int doc_i = 0; doc_i < model->num_doc; doc_i++) {
     for (int super_topic = 0; super_topic < model->num_super_topic; super_topic++) {
