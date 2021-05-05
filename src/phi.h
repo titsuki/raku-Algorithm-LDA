@@ -16,7 +16,7 @@ void lda_phi_allocate(struct phi_model* model, int sub_topic, int word_type);
 void lda_phi_deallocate(struct phi_model* model, int sub_topic, int word_type);
 void lda_phi_update(struct phi_model* model);
 double lda_phi_weight(struct phi_model* model, int sub_topic, int word_type);
-double lda_phi_pdf(struct phi_model* model);
+double lda_phi_likelihood(struct phi_model* model);
 int lda_phi_num_word_type(struct phi_model* model);
 int lda_phi_num_sub_topic(struct phi_model* model);
 
